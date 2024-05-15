@@ -5,7 +5,7 @@
 #include "game.hpp"
 #include "texture.hpp"
 
-const int BORDER_SIZE = 10;
+const int BORDER_SIZE = 20;
 
 const int TILE_SIZE = 50;
 const int HORIZONTAL_TILES = 20;
@@ -187,7 +187,7 @@ void Game::render() {
     SDL_SetRenderDrawColor(renderer, 30, 30, 30, 0xff);
     SDL_RenderClear(renderer);
 
-    SDL_SetRenderDrawColor(renderer, 100, 10, 10, 0xff);
+    SDL_SetRenderDrawColor(renderer, 50, 50, 50, 0xff);
 
     SDL_Rect borderRects[4] = {
         {0, 0, WINDOW_WIDTH, BORDER_SIZE},
@@ -208,7 +208,7 @@ void Game::render() {
         SDL_RenderFillRect(renderer, &segmentRect);
     }
 
-    SDL_SetRenderDrawColor(renderer, 10, 100, 10, 0xff);
+    SDL_SetRenderDrawColor(renderer, 150, 15, 15, 0xff);
     SDL_Rect foodRect = {food.x * TILE_SIZE + BORDER_SIZE, food.y * TILE_SIZE + BORDER_SIZE, TILE_SIZE, TILE_SIZE};
     SDL_RenderFillRect(renderer, &foodRect);
 
@@ -228,10 +228,10 @@ void Game::renderSmpte() {
 void Game::renderDieScreen() {
     printf("%d\n", (int) snake.bodySegments.size());
     for (int i = 100; i >= 0; i -= 5) {
-        SDL_SetRenderDrawColor(renderer, i, 10, 10, 0xff);
+        SDL_SetRenderDrawColor(renderer, i, i, i, 0xff);
         SDL_RenderClear(renderer);
         SDL_RenderPresent(renderer);
-        SDL_Delay(30);
+        SDL_Delay(40);
     }
 }
 

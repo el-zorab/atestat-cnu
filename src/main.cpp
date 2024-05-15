@@ -24,9 +24,5 @@ int main(int argc, char* argv[]) {
 
     game->close();
 
-    // if (borderCollision) {
-    //     printf("YOU TOUCHED THE BORDER\n");
-    // }
-
     return 0;
 }
