@@ -1,3 +1,4 @@
+#include <cmath>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <stdio.h>
@@ -5,11 +6,11 @@
 #include "game.hpp"
 #include "texture.hpp"
 
-const int BORDER_SIZE = 20;
+const int BORDER_SIZE = 10;
 
-const int TILE_SIZE = 50;
-const int HORIZONTAL_TILES = 20;
-const int VERTICAL_TILES   = 20;
+const int TILE_SIZE = 25;
+const int HORIZONTAL_TILES = 15;
+const int VERTICAL_TILES   = 15;
 
 const int WINDOW_WIDTH  = 2 * BORDER_SIZE + TILE_SIZE * HORIZONTAL_TILES;
 const int WINDOW_HEIGHT = 2 * BORDER_SIZE + TILE_SIZE * VERTICAL_TILES;
@@ -96,24 +97,28 @@ void Game::handleEvents() {
                     running = false;
                     break;
                 case SDLK_LEFT:
+                case SDLK_a:
                     if (snake.direction != RIGHT && !snakeDirectionChanged) {
                         snake.direction = LEFT;
                         snakeDirectionChanged = true;
                     }
                     break;
                 case SDLK_RIGHT:
+                case SDLK_d:
                     if (snake.direction != LEFT && !snakeDirectionChanged) {
                         snake.direction = RIGHT;
                         snakeDirectionChanged = true;
                     }
                     break;
                 case SDLK_UP:
+                case SDLK_w:
                     if (snake.direction != DOWN && !snakeDirectionChanged) {
                         snake.direction = UP;
                         snakeDirectionChanged = true;
                     }
                     break;
                 case SDLK_DOWN:
+                case SDLK_s:
                     if (snake.direction != UP && !snakeDirectionChanged) {
                         snake.direction = DOWN;
                         snakeDirectionChanged = true;
