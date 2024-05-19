@@ -231,7 +231,8 @@ void Game::renderSmpte() {
 }
 
 void Game::renderDieScreen() {
-    printf("%d\n", (int) snake.bodySegments.size());
+    printf("%d\n", (int) snake.bodySegments.size() - 3);
+
     for (int i = 100; i >= 0; i -= 5) {
         SDL_SetRenderDrawColor(renderer, i, i, i, 0xff);
         SDL_RenderClear(renderer);
